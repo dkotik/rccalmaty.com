@@ -1,0 +1,91 @@
+@import "bulma/utilities/_all"
+@import "bulma/base/_all"
+@import "bulma/elements/_all"
+@import "bulma/components/_all"
+@import "bulma/grid/_all"
+@import "bulma/layout/_all"
+@import "ember/_System"
+@import "ember/_Markdown"
+
+.container
+    max-width: 46rem
+
+body
+  background-color: #E0D9C7
+
+main
+    min-height: 70vh
+
+main > section.content:first-of-type
+  // min-height: inherit
+  padding: 2rem 2rem 3rem 2rem
+
+main
+  font-size: 80%
+  // background-color: gradient(DECE93, FEFEC8)
+  background: #dece93
+  background: -moz-linear-gradient(top, #dece93 0%, #fefec8 100%)
+  background: -webkit-linear-gradient(top, #dece93 0%,#fefec8 100%)
+  background: linear-gradient(to bottom, #dece93 0%,#fefec8 100%)
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dece93', endColorstr='#fefec8',GradientType=0 )
+
+a, h1 a, h2 a
+  color: #6b69de
+
+p > a
+  border-bottom: 1px dashed #6b69de
+
+a:hover, h1 a:hover, h2 a:hover
+  color: #107bd6
+
+.highlight:hover
+  color: #FF8C00
+
+#logo
+  position: relative
+  background-color: #CFBF6A
+  height: 120px
+  background-image: url('/img/top.jpg')
+  background-repeat: no-repeat
+  background-position: left top
+  background-size: cover
+
+#lang
+  float: right !important
+  padding: 1rem
+
+  img
+    max-width: 1.5rem
+
+nav.navbar
+    font-size: 1rem
+    padding: 0 2rem 0 2rem
+    background-color: #867C58
+
+    a
+        color: white
+
+    a:hover
+        color: #c1e610
+
+body .canvasColorBar
+  background-color: #867C58
+  font-size: 2.4rem
+
+body .canvasColorBar a
+  display: inline-block
+  color: #E9E9E9
+  font-weight: normal
+  padding: 0em 3.3rem 0em 1em
+  white-space: nowrap
+  transition: all 150ms linear
+
+  &:hover
+    transition: all 150ms linear
+    color: #E2E634
+
+footer
+  color: #899BB5
+  // background-color: #182339
+  padding: 1.5rem 4rem 1.3rem 4rem
+  // border-bottom: 1.2em solid #04080F

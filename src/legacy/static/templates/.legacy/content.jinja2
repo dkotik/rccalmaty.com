@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="{{ request.locale_name|e }}">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>RCC Almaty{{- ': ' + title|e if title -}}</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+  <meta name="title" content="{{ title|e }}" />
+  <meta name="description" content="{{ description|e }}" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="keywords" content="{{ keywords|e }}" />
+  <link rel="image_src" href="{{ badge|e }}" />
+  <meta property="og:image" content="{{ badge|e }}" name="og:image"/>
+  <meta property="fb:app_id" content="966242223397117" name="fb:app_id" />
+  <meta property="og:description" content="{{ description|e }}" name="og:description" />
+  <meta property="og:url" content="{{ request.path_url|e }}" name="og:url" />
+  <meta property="og:type" content="website" name="og:type" />
+  <meta property="og:title" content="{{ title|e }}" name="og:title" />
+  <link rel="stylesheet" href="{{ staticpath }}js/plugins/fontawesome/font-awesome.min.css" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{{ title|e }}" />
+  <meta name="twitter:description" content="{{ description|e }}" />
+  <meta name="twitter:image" content="{{ badge|e }}" />
+  <script src="{{ staticpath }}js/jquery-1.11.3.min.js" type="text/javascript"></script>
+  <script src="{{ staticpath }}js/lodash.min.js" type="text/javascript"></script>
+  <script src="{{ staticpath }}js/sjcl.min.js" type="text/javascript"></script>
+  <script src="{{ staticpath }}js/push.min.js" type="text/javascript"></script>
+  <script src="{{ staticpath }}js/vue.min.js" type="text/javascript"></script>
+  <script src="/static/js/immediate.js" type="text/javascript"></script>
+</head>
+<body class="{{ request.matched_route.name }} {{ request.matchdict.get('action') }}">
+  <div id="flash"></div><cp id="cp" v-cloak></cp>
+  {% block header %}
+    <div id="logo">{%- if request.matched_route.name == 'frontpage' -%}
+    <div class="container" id="topmenu">
+    	<ul>
+    		{% if request.locale_name == 'en' %}<li><a href="/language/ru.html">По Русски</a></li>{% else %}
+    		<li><a href="/language/en.html">English</a></li>{% endif %}
+    		<li><a href="/{{ request.locale_name }}/community/contact.html">{{ _('Contact') }}</a></li>
+    		<li><a href="/{{ request.locale_name }}/community/agreement.html">{{ _('Membership') }}</a></li>
+    		<li><a href="/{{ request.locale_name }}/mailings/community.html">{{ _('Newsletter') }}</a></li>
+    	</ul>
+    </div>{%- endif -%}
+    </div>
+    {%- if request.matched_route.name == 'frontpage' -%}
+    <a id="home" target="_top" href="/"><h1>{% if request.locale_name == 'en' %}Resurrection of Christ Church of Almaty{% else %}Церковь Воскресения Христова{% endif %}</h1></a>
+    {%- else -%}
+    <a id="home" target="_top" href="/"><div class="container">
+    <h1>ЦВХ</h1></div></a>
+    {%- endif -%}
+  {% endblock %}
+  <main role="main" data-flash="{{ request.session.pop_flash()|join(' ')|e }}" data-time="{{ request.time }}" class="container">
+    {{- content -}}
+  </main>
+  <footer role="contentinfo">
+    <div class="container clear">
+      {%- block footer -%}
+        <div class="float right" id="footerMenu">
+          {%- block usermenu -%}
+            <a id="login" href="{{ request.route_url('user', action='login') }}"><span class="fa fa-sign-in icon"></span>&nbsp;&nbsp;{{ _('Login') }}</a>
+          {%- endblock -%}
+        </div>
+        &#169; 2017 <a href="/">rccalmaty.com</a>
+        <div class="container">
+        </div>
+      {%- endblock -%}</div>
+  </footer>
+</body></html>

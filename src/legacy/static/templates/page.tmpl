@@ -1,0 +1,41 @@
+{{ with merge ( data `/static/templates/defaults.toml`) . }}
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-gb" lang="en">
+<head>
+  <title>{{ .title }}</title>
+  <link rel="stylesheet" href="/static/style.css" />
+  {{ block `head` . }}
+  {{ end }}
+</head>
+<body class="{{ .class }}">
+  {{ block `hero` . }}
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/">
+        <img src="/static/img/logo.svg" style="width: 10rem">
+      </a>
+      <a class="navbar-item" href="/">Главная</a>
+      <a class="navbar-item" href="/services.html">Гостям</a>
+      <a class="navbar-item" href="/about.html">О Нас</a>
+      <a class="navbar-item" href="/sermons.html">Проповеди</a>
+    </div>
+  </nav>
+  {{ end }}
+<main class="container">
+{{ block `main` . }}
+  <section class="content">
+    {{ .content }}
+  </section>
+{{ end }}
+</main>
+<footer>
+    <section class="container">
+        {{ block `footer` . }}
+            <div class="has-text-centered">
+                "Если будем говорить правду с любовью, то будем расти, во всём приближаясь к Нему." Ефесянам 4:15
+            </div>
+        {{ end }}
+    </section>
+</footer>
+</body></html>
+{{ end }}

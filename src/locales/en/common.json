@@ -1,0 +1,13 @@
+{
+  "title": "Ressurection Church of Christ",
+  "title-prefix": "RCC",
+  "description": "Worshipping community in Almaty, Kazakhstan.",
+  "keywords": "russian speaking church slavic kazakh church almaty kazakhstan",
+  "menu": {
+    "home": "Home",
+    "about": "About",
+    "sermons": "Sermons",
+    "location": "Location",
+    "contact": "Contact"
+  }
+}

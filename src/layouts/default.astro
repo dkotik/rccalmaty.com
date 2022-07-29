@@ -1,0 +1,57 @@
+---
+import { HeadHrefLangs } from "astro-i18next/components";
+import i18next, { t } from "i18next";
+import Navigation from "./navigation.astro";
+import '../styles/default.sass';
+import config from '@content/configuration.json';
+let { phone, address } = config;
+
+const locale = /^\/en\//.test(Astro.url.pathname) ? "en" : "ru";
+i18next.changeLanguage(locale);
+const title = Astro.props.title
+    ? t("title-prefix") + ": " + Astro.props.title
+    : t("title");
+const description = Astro.props.description || t("description");
+const keywords = Astro.props.keywords || t("keywords");
+---
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+    <title>{ title }</title>
+    <meta name="title" content="{ title }" />
+    <meta name="description" content={ description }/>
+    <meta name="keywords" content={ keywords } />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+  </head>
+  <body class={Astro.props.class}>
+    <main class="container">
+        <div id="logo">
+          <div id="lang">
+            { locale === "kk" ? "" : <a href="/kk/index.html">🇰🇿</a> }
+            { locale === "en" ? "" : <a href="/en/index.html">🇬🇧</a> }
+            { locale === "ru" ? "" : <a href="/index.html">🇷🇺</a> }
+          </div>
+        </div>
+        <slot name="hero" />
+        <Navigation />
+        <section class="content">
+          <slot />
+        </section>
+        </main>
+    <footer>
+        <slot name="footer">
+            <section class="container has-text-centered">
+                  <small>"Если будем говорить правду с любовью, то будем расти, во всём приближаясь к Нему." (Ефесянам 4:15)</small>
+            </section>
+        </slot>
+    </footer>
+  </body>
+</html>
+
+<style>
+#lang {
+  font-size: 1.6em;
+}
+</style>
