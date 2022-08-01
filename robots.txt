@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /assets/
+Allow: /
+Crawl-delay: 10
+Sitemap: https://rccalmaty.com/sitemap-index.xml
