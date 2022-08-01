@@ -1,32 +1,19 @@
 ---
-title: "Our location"
-description: Our location and service times.
-date: 12 Nov 2015
-author: Andrei Muzchil
-keywords: our location
+title: "Где мы"
 ---
 
-import { address, map } from "../configuration.json";
+import { map } from "../configuration.json";
 
-# Location
+# Где мы
 
-<s>Intersection of Abay - Baizakov 4th Floor, exact address: Abay 52B</s>
+Адрес: проспект Абая 157а, Алматы. Пересечение Абая --- Розыбакиева. Вход с задней стороны здания по ступенькам.
 
-The service starts at 11:00am and ends at approximately 12:40pm. You can expect a contemporary worship service followed by one exegetical sermon.
+Служение начинается в **11:00 утра**, заканчивается приблизительно в 12:40. Вас ожидают современное прославление и разъяснительная проповедь.
 
-<div class="columns">
-  <section class="column res is-one-third">
-    <article>
-      <section class="content subtitle">{address}</section>
-    </article>
-  </section>
-  <section class="column">
-    <iframe
-      src={map}
-      style="border:0;width:100%;min-height: 16em;"
-      allowfullscreen=""
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade"
-    ></iframe>
-  </section>
-</div>
+<iframe
+  src={map}
+  style="border:0;width:100%;min-height: 16em;border: 2px solid black;"
+  allowfullscreen=""
+  loading="lazy"
+  referrerpolicy="no-referrer-when-downgrade"
+></iframe>

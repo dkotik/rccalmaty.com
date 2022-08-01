@@ -21,7 +21,7 @@
     }
 
     figure iframe {
-        height: 32em;
+        height: 24em;
         width: 100%;
     }
 </style>

@@ -18,7 +18,7 @@
                             "/hqdefault.jpg"}
                     />
                     <figcaption>
-                        {video.title}
+                        📽 {video.title}
                     </figcaption>
                 </figure>
             </a>
@@ -34,9 +34,33 @@
 
 <style>
     section {
+        background-color: #161616;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
-        grid-row-gap: 1em;
-        margin-bottom: 2em;
+        grid-row-gap: 0;
+        /* margin-bottom: 2em; */
+    }
+
+    figure {
+        position: relative;
+        margin: 0;
+    }
+
+    img {
+        object-fit: cover;
+        width: 100%;
+        min-height: 8rem;
+    }
+
+    figcaption {
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        color: rgb(177, 182, 170);
+        background-color: #303030;
+        padding: 0.2rem 1rem 0.8rem 1rem;
+        text-align: left;
+        font-size: 0.8rem;
+        font-style: normal !important;
     }
 </style>

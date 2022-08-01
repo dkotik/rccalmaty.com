@@ -13,10 +13,16 @@ import Language from "./language.astro"
     <a class="navbar-item" href={localizePath("/sermons.html")}>{t("menu.sermons")}</a>
     <a class="navbar-item" href={localizePath("/location.html")}>{t("menu.location")}</a>
     <a class="navbar-item" href={localizePath("/contact.html")}>{t("menu.contact")}</a>
-  </div>
-  <div class="navbar-end">
-    <div class="navbar-item right" style="margin-right: 1em;">
-      <Language />
+
+    <div class="navbar-end">
+      <div class="navbar-item right" style="margin-right: 1em;">
+        <Language />
+      </div>
     </div>
+    <!--<a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>-->
   </div>
 </nav>
