@@ -1,0 +1,28 @@
+---
+import DefaultLayout from "@layouts/default.astro";
+import LoadVideos from "@components/youtube-data.mjs";
+import Video from "@components/youtube-video.svelte";
+import config from '@content/configuration.json';
+
+export async function getStaticPaths() {
+    return (await LoadVideos(config.YoutubeChannel))
+        .feed.entry.map(video => ({
+          params: { id: video["yt:videoId"] },
+          props: video
+        }));
+}
+
+const { id } = Astro.params;
+const video = Astro.props;
+---
+
+<DefaultLayout
+    title={video?.title}
+    description={video?.description}
+    class="video"
+>
+    <h1>{video.title}</h1>
+    <section>
+        <Video id={id} />
+    </section>
+</DefaultLayout>

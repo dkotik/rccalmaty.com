@@ -19,6 +19,7 @@
     "astro-robots-txt": "^0.3.7",
     "fast-xml-parser": "^4.0.9",
     "sass": "^1.53.0",
-    "svelte": "^3.49.0"
+    "svelte": "^3.49.0",
+    "svelte-i18next": "^1.2.2"
   }
 }

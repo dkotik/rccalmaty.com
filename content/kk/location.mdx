@@ -1,0 +1,32 @@
+---
+title: "Our location"
+description: Our location and service times.
+date: 12 Nov 2015
+author: Andrei Muzchil
+keywords: our location
+---
+
+import { address, map } from "../configuration.json";
+
+# Location
+
+<s>Intersection of Abay - Baizakov 4th Floor, exact address: Abay 52B</s>
+
+The service starts at 11:00am and ends at approximately 12:40pm. You can expect a contemporary worship service followed by one exegetical sermon.
+
+<div class="columns">
+  <section class="column res is-one-third">
+    <article>
+      <section class="content subtitle">{address}</section>
+    </article>
+  </section>
+  <section class="column">
+    <iframe
+      src={map}
+      style="border:0;width:100%;min-height: 16em;"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
+  </section>
+</div>

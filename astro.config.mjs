@@ -36,6 +36,7 @@ export default defineConfig({
       i18next: {
         debug: true,
         // convenient during development to check for missing keys
+        // ns: ["common", "forms"],
         defaultNS: "common",
         // translation keys will be retrieved in the common.json file by default
         supportedLngs: ["ru", "kk", "en"],

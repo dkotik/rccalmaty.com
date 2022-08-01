@@ -1,34 +1,24 @@
 <script>
     export let locale = "en";
     export let endpoint = "/api/v1/contact.json";
+    import { contact as transRU } from "../locales/ru/forms.json";
+    import { contact as transEN } from "../locales/en/forms.json";
+    import { contact as transKZ } from "../locales/kk/forms.json";
+
+    const trans = (() => {
+        switch (locale) {
+            case "ru":
+                return transRU;
+            case "kk":
+                return transKK;
+            default:
+                return transEN;
+        }
+    })();
 
     let busy = false;
     let done = false;
     let error = null;
-    const trans =
-        locale === "en"
-            ? {
-                  name: "Your Name",
-                  email: "Email Address",
-                  phone: "Phone Number",
-                  message: "Message",
-                  send: "Send",
-                  thankyou:
-                      "Thank you for reaching out to us! We typically respond within 48 hours.",
-                  timeout: "Connection timed out!",
-                  error: "Connection failed!",
-              }
-            : {
-                  name: "Ваше имя",
-                  email: "Почта",
-                  phone: "Телефон",
-                  message: "Сообщение",
-                  send: "Послать",
-                  thankyou:
-                      "Благодарим за ваше сообщение! Мы обычно отвечаем втечение 72 часов.",
-                  timeout: "Соединение не состоялось. Нет ответа.",
-                  error: "Запрос не прошёл.",
-              };
 
     let name = "";
     let email = "";

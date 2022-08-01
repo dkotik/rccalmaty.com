@@ -1,91 +1,132 @@
+$primary: #4f79b8
+
 @import "bulma/utilities/_all"
 @import "bulma/base/_all"
 @import "bulma/elements/_all"
 @import "bulma/components/_all"
 @import "bulma/grid/_all"
 @import "bulma/layout/_all"
-@import "ember/_System"
-@import "ember/_Markdown"
 
 .container
     max-width: 46rem
 
 body
-  background-color: #E0D9C7
+  border-top: 1rem solid #16180E
+
+body.frontpage #logo
+    background-image: url(img/background.jpg)
+    background-position: center 10%
+    background-repeat: no-repeat
+    // background-size: 56rem auto
+    background-size: cover
+    padding: 6rem 3rem 5rem 3rem
+    border-bottom: 3px solid #3776c9
+
+    img
+        display: block
+        margin: 0 auto
+        max-width: 30rem
 
 main
-    min-height: 70vh
+    padding: 3rem 1.5rem 2rem 1.5rem
+    min-height: 90vh
 
-main > section.content:first-of-type
-  // min-height: inherit
-  padding: 2rem 2rem 3rem 2rem
+section.videos
+    background-color: #161616
+    .tile.is-parent
+        padding: 0
+    figure
+        position: relative
+        margin: 0
+        img
+            object-fit: cover
+            width: 100%
+            min-height: 8rem
+        figcaption
+            bottom: 0
+            left: 0
+            width: 100%
+            color: rgb(177, 182, 170)
+            padding: 0.2rem 1rem 0.8rem 1rem
+            text-align: left
+            font-size: 0.8rem
+            font-style: normal
 
-main
-  font-size: 80%
-  // background-color: gradient(DECE93, FEFEC8)
-  background: #dece93
-  background: -moz-linear-gradient(top, #dece93 0%, #fefec8 100%)
-  background: -webkit-linear-gradient(top, #dece93 0%,#fefec8 100%)
-  background: linear-gradient(to bottom, #dece93 0%,#fefec8 100%)
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dece93', endColorstr='#fefec8',GradientType=0 )
 
-a, h1 a, h2 a
-  color: #6b69de
 
-p > a
-  border-bottom: 1px dashed #6b69de
+// body.frontpage #logo
+//   background-color: #8AB3C8
+//   background-size: cover
+//   background-image: url('frontpage.jpg')
+//   background-position: center 30%
+//   height: 65vh
+//
+// body.frontpage .intro
+//   margin-top: 2.5em
+// body.frontpage .intro h3
+//   // line-height: 1.4em
+//   font-size: 70%
+// body.frontpage .news
+//   background-color: #A3C6DF
+//   border-top: 0.2em solid #1a6993
+//   padding: 1.5rem 0 2rem 0
+//   font-size: 60%
+// body.frontpage .news a:hover
+//   color: #051119
+// body .news h3
+//   font-size: 2.5rem
+//   font-weight: bold
+// body.frontpage .quote
+//   padding: 3em 2em 0em 2em
+//   text-align: center
+//   font-size: 60%
+//   // font-size: 1.2em
 
-a:hover, h1 a:hover, h2 a:hover
-  color: #107bd6
-
-.highlight:hover
-  color: #FF8C00
-
-#logo
-  position: relative
-  background-color: #CFBF6A
-  height: 120px
-  background-image: url('/img/top.jpg')
-  background-repeat: no-repeat
-  background-position: left top
-  background-size: cover
-
-#lang
-  float: right !important
-  padding: 1rem
-
-  img
-    max-width: 1.5rem
-
-nav.navbar
-    font-size: 1rem
-    padding: 0 2rem 0 2rem
-    background-color: #867C58
-
-    a
-        color: white
-
-    a:hover
-        color: #c1e610
-
-body .canvasColorBar
-  background-color: #867C58
-  font-size: 2.4rem
-
-body .canvasColorBar a
-  display: inline-block
-  color: #E9E9E9
-  font-weight: normal
-  padding: 0em 3.3rem 0em 1em
-  white-space: nowrap
-  transition: all 150ms linear
-
-  &:hover
-    transition: all 150ms linear
-    color: #E2E634
 
 footer
-  color: #899BB5
-  // background-color: #182339
-  padding: 1.5rem 4rem 1.3rem 4rem
-  // border-bottom: 1.2em solid #04080F
+  padding: 2em 1em 1.5em 1em
+  background-color: #051119
+  color: #758F90
+  font-size: 65%
+
+  a
+    color: #ABC0FF
+
+.frontpage #home
+  text-align: center
+
+#home
+  display: block
+  padding: 0.4em 1em 0.5em 1em
+  background-color: #190509
+  margin-bottom: 3rem
+
+  h1
+    text-transform: capitalize
+    color: white
+    font-size: 200%
+    font-weight: normal
+    margin: 0.3em 0em 0.4em 0em
+
+#topmenu
+  a
+    font-size: 70%
+    display: inline-block
+    border-radius: 0.3em
+    // border: 0.1em solid #A0B7DF
+    background-color: rgba(255, 255, 255, 0.3)
+    padding: 0.2em 1em 0.2em 1em
+    margin: 0.2em 0.2em 1.2em 0.2em
+  a:hover
+    color: #051119
+    background-color: rgba(255, 255, 255, 0.5)
+  li
+    display: inline-block
+  ul
+    text-align: justify
+    min-width: 100%
+    padding: 0.4em 1em 1em 1em
+  ul:after
+    content: ''
+    display: inline-block
+    width: 100%
