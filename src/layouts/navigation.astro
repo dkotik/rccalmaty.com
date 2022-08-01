@@ -1,13 +1,22 @@
 ---
 import { localizePath } from "astro-i18next";
 import i18next, { t } from "i18next";
+import Language from "./language.astro"
 ---
 <nav class="navbar">
   <div class="navbar-brand">
+    <a class="navbar-item" href="/">
+      <img src="/img/logo.svg" style="width: 10rem">
+    </a>
     <a class="navbar-item" href={localizePath("/index.html")}>{t("menu.home")}</a>
     <a class="navbar-item" href={localizePath("/about.html")}>{t("menu.about")}</a>
     <a class="navbar-item" href={localizePath("/sermons.html")}>{t("menu.sermons")}</a>
     <a class="navbar-item" href={localizePath("/location.html")}>{t("menu.location")}</a>
     <a class="navbar-item" href={localizePath("/contact.html")}>{t("menu.contact")}</a>
+  </div>
+  <div class="navbar-end">
+    <div class="navbar-item right" style="margin-right: 1em;">
+      <Language />
+    </div>
   </div>
 </nav>

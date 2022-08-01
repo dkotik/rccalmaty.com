@@ -1,12 +1,15 @@
 ---
 import { HeadHrefLangs } from "astro-i18next/components";
+import { localizePath } from "astro-i18next";
 import i18next, { t } from "i18next";
 import Navigation from "./navigation.astro";
+import Language from "./language.astro"
 import '../styles/default.sass';
 import config from '@content/configuration.json';
 let { phone, address } = config;
 
-const locale = /^\/en\//.test(Astro.url.pathname) ? "en" : "ru";
+const locale = /^\/en\//.test(Astro.url.pathname)
+    ? "en" : /^\/kk\//.test(Astro.url.pathname) ? "kk" : "ru";
 i18next.changeLanguage(locale);
 const title = Astro.props.title
     ? t("title-prefix") + ": " + Astro.props.title
@@ -26,16 +29,38 @@ const keywords = Astro.props.keywords || t("keywords");
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
   </head>
   <body class={Astro.props.class}>
+    <slot name="hero">
+      { Astro.props.class === "frontpage"
+          ?
+            <div id="logo">
+              <img src="/img/logo.svg" />
+            </div>
+            <div style="float: right; margin: 0 1em 1em 1em">
+            <Language />
+            </div>
+          : <Navigation />
+      }
+
+    </slot>
     <main class="container">
-        <div id="logo">
-          <div id="lang">
-            { locale === "kk" ? "" : <a href="/kk/index.html">🇰🇿</a> }
-            { locale === "en" ? "" : <a href="/en/index.html">🇬🇧</a> }
-            { locale === "ru" ? "" : <a href="/index.html">🇷🇺</a> }
-          </div>
-        </div>
-        <slot name="hero" />
-        <Navigation />
+        { (Astro.props.class === "frontpage")
+            ?
+            <section class="columns has-text-centered">
+              <a class="column" href="about.html">
+                <img src="/img/congregation.jpg" /><br /><br />
+                <span class="button">{t("menu.about")}</span>
+              </a>
+              <a class="column" href="location.html">
+                <img src="/img/service.jpg" /><br /><br />
+                <span class="button">{t("menu.location")}</span>
+              </a>
+              <a class="column" href="sermons.html">
+                <img src="/img/pastor.jpg" /><br /><br />
+                <span class="button">{t("menu.sermons")}</span>
+              </a>
+            </section>
+            : ""
+        }
         <section class="content">
           <slot />
         </section>

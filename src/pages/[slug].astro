@@ -8,7 +8,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
       return slug;
   }
 
-  return Promise.all((await Astro.glob('../../content/en/*.mdx'))
+  return Promise.all((await Astro.glob('../../content/ru/*.mdx'))
     .filter((page) => !page?.frontmatter?.draft) // skip drafts
     .map(async ({ default: Content, frontmatter, file, url }) => {
         return {
