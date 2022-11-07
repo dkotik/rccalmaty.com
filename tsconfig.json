@@ -13,7 +13,7 @@
     "types": ["astro/client"],
     "baseUrl": ".",
     "paths": {
-      "@content/*": ["content/*"],
+      "@content/*": ["src/content/*"],
       "@components/*": ["src/components/*"],
       "@layouts/*": ["src/layouts/*"],
       "@assets/*": ["src/assets/*"]
