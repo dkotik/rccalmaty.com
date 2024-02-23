@@ -40,8 +40,12 @@
                 message: message,
             }),
         })
-            .then((response) => {
+            .then(async (response) => {
               if (response.status != 200) {
+                const data = await response.json()
+                if (data.Error) {
+                    throw new Error(data.Error);
+                }
                 throw new Error(`unexpected response status "${response.status}"`)
               }
               return response.json()
