@@ -1,6 +1,6 @@
 import { defineConfig } from "astro/config";
 import svelte from "@astrojs/svelte";
-import compress from "astro-compress";
+// import compress from "astro-compress";
 import sitemap from "@astrojs/sitemap";
 import robotsTxt from "astro-robots-txt";
 import astroI18next from "astro-i18next";
@@ -43,14 +43,14 @@ export default defineConfig({
         resourcesPath: "src/locales" // resourcesPath 	?string (src/resources/locales/) 	The path to your translation files
       }
     }),
-    compress({
-      // path: target,
-      // logger: 0, // default 2
-      css: false // html: false,
-      // js: false,
-      // img: false,
-      // svg: false
-    }),
+    // compress({
+    //   // path: target,
+    //   // logger: 0, // default 2
+    //   css: false // html: false,
+    //   // js: false,
+    //   // img: false,
+    //   // svg: false
+    // }),
     robotsTxt({
       sitemapBaseFileName: "sitemap-index",
       // default 'sitemap-index'

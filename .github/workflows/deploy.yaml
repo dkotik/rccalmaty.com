@@ -7,8 +7,8 @@ on:
     branches: [main]
   # Allows you to run this workflow manually from the Actions tab on GitHub.
   workflow_dispatch:
-  schedule:
-    - cron: "0 4 * * 1" # run at 4am every monday, the last digit is the day of the week see https://crontab.guru/
+  # schedule:
+  #   - cron: "0 4 * * 1" # run at 4am every monday, the last digit is the day of the week see https://crontab.guru/
 
 jobs:
   deploy:

@@ -41,7 +41,7 @@
             }),
         })
             .then((response) => {
-              if response.status != 200 {
+              if (response.status != 200) {
                 throw new Error(`unexpected response status "${response.status}"`)
               }
               return response.json()
