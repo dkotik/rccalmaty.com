@@ -26,8 +26,12 @@
     let message = "";
     const send = () => {
         busy = true;
+
         fetch(endpoint + "?locale=" + encodeURIComponent(locale), {
             method: "POST",
+            headers: {
+              'Content-Type': 'application/json',
+            },
             mode: "cors",
             body: JSON.stringify({
                 name: name,
@@ -36,7 +40,12 @@
                 message: message,
             }),
         })
-            .then((response) => response.json())
+            .then((response) => {
+              if response.status != 200 {
+                throw new Error(`unexpected response status "${response.status}"`)
+              }
+              return response.json()
+            })
             .then((data) => {
                 if (data.Error) {
                     error = data.Error;
