@@ -43,16 +43,16 @@
             .then(async (response) => {
               if (response.status != 200) {
                 const data = await response.json()
-                if (data.Error) {
-                    throw new Error(data.Error);
+                if (data.error) {
+                    throw new Error(data.error);
                 }
                 throw new Error(`unexpected response status "${response.status}"`)
               }
               return response.json()
             })
             .then((data) => {
-                if (data.Error) {
-                    error = data.Error;
+                if (data.error) {
+                    error = data.error;
                     return;
                 }
                 done = true;
